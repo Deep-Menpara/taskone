@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<center>
+<form action="/load">
+    {% csrf_token %}
+  <button type="submit" class="btn btn-primary" style="margin-top: 30px;margin-bottom: -20px">Fetch Data</button>
+</form>
+</center>
+<div class="container">
+                <table class="table  table-dark table-striped table-hover text-center" style="margin-top: 60px;margin-bottom: 100px;padding: 10px;font-size: 20px;box-shadow: 5px 5px 12px black;">
+                    <thead>
+
+                        <tr>
+                            <td style="padding: 15px;background: #000;color: #c1a0ff ">Title</td>
+                            <td style="padding: 15px;background: #000;color: #c1a0ff">Price</td>
+                            <td style="padding: 15px;background: #000;color: #c1a0ff">Popularity</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in list %}
+                        <tr>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.popularity }}</td>
+                    {% endfor %}
+                    </tbody>
+                </table>
+</div>
+
+</body>
+</html>
